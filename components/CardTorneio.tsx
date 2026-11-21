@@ -1,8 +1,8 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { cores, espacamento, fonte } from '@/lib/tema';
 import type { Torneio } from '@/types';
 
-// Props tipadas: o TypeScript barra se faltar o torneio ou o onPress.
 type CardTorneioProps = {
   torneio: Torneio;
   onPress: () => void;
@@ -15,9 +15,9 @@ const ROTULO_STATUS: Record<Torneio['status'], string> = {
 };
 
 const COR_STATUS: Record<Torneio['status'], string> = {
-  aberto: '#0D7A4F',
-  andamento: '#C05621',
-  fim: '#4A5568',
+  aberto: cores.verde,
+  andamento: cores.laranja,
+  fim: cores.cinza,
 };
 
 const ROTULO_JOGO: Record<Torneio['jogo'], string> = {
@@ -25,7 +25,6 @@ const ROTULO_JOGO: Record<Torneio['jogo'], string> = {
   MLBB: 'Mobile Legends',
 };
 
-// Mostra '2026-11-29' como '29/11/2026', sem se preocupar com fuso horário.
 function formatarData(dataIso: string): string {
   const [ano, mes, dia] = dataIso.split('-');
   return `${dia}/${mes}/${ano}`;
@@ -54,12 +53,12 @@ export function CardTorneio({ torneio, onPress }: CardTorneioProps) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: cores.fundoCard,
     borderRadius: 12,
-    padding: 16,
+    padding: espacamento.medio,
     marginBottom: 12,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: cores.borda,
   },
   cardPressionado: {
     opacity: 0.7,
@@ -71,9 +70,9 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   jogo: {
-    fontSize: 13,
+    fontSize: fonte.pequeno,
     fontWeight: '600',
-    color: '#0D7A4F',
+    color: cores.verde,
     textTransform: 'uppercase',
   },
   selo: {
@@ -82,18 +81,18 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   seloTexto: {
-    color: '#FFFFFF',
+    color: cores.branco,
     fontSize: 12,
     fontWeight: '600',
   },
   nome: {
-    fontSize: 18,
+    fontSize: fonte.subtitulo,
     fontWeight: '700',
-    color: '#1A202C',
+    color: cores.texto,
     marginBottom: 6,
   },
   data: {
-    fontSize: 14,
-    color: '#4A5568',
+    fontSize: fonte.normal,
+    color: cores.textoSecundario,
   },
 });

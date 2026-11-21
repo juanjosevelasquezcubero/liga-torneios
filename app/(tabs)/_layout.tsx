@@ -1,13 +1,16 @@
 import { Tabs } from 'expo-router';
 
-// Duas abas fixas na parte de baixo da tela: Início e Ranking.
+import { cores } from '@/lib/tema';
+
 export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
         headerTitleAlign: 'center',
-        tabBarActiveTintColor: '#0D7A4F',
-        tabBarInactiveTintColor: '#718096',
+        tabBarActiveTintColor: cores.verde,
+        tabBarInactiveTintColor: cores.cinza,
+        headerStyle: { backgroundColor: cores.fundo },
+        headerTintColor: cores.texto,
       }}
     >
       <Tabs.Screen

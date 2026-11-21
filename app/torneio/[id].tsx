@@ -2,8 +2,8 @@ import { useLocalSearchParams } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { Chave } from '@/components/Chave';
+import { cores, espacamento, fonte } from '@/lib/tema';
 
-// useLocalSearchParams lê o [id] que veio na URL, ex.: /torneio/1
 export default function TorneioScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
 
@@ -12,7 +12,7 @@ export default function TorneioScreen() {
       <Text style={styles.titulo}>Torneio</Text>
       <Text style={styles.texto}>ID do torneio: {id}</Text>
       <Text style={styles.ajuda}>
-        No próximo passo, esta tela mostra os times inscritos e a chave.
+        Em breve esta tela mostrará os times inscritos e a chave gerada.
       </Text>
       <Chave />
     </View>
@@ -22,22 +22,22 @@ export default function TorneioScreen() {
 const styles = StyleSheet.create({
   tela: {
     flex: 1,
-    backgroundColor: '#F4F6F8',
-    padding: 16,
+    backgroundColor: cores.fundo,
+    padding: espacamento.medio,
     gap: 12,
   },
   titulo: {
-    fontSize: 22,
+    fontSize: fonte.titulo,
     fontWeight: '700',
-    color: '#1A202C',
+    color: cores.texto,
   },
   texto: {
-    fontSize: 16,
-    color: '#1A202C',
+    fontSize: fonte.normal,
+    color: cores.texto,
   },
   ajuda: {
-    fontSize: 14,
-    color: '#4A5568',
+    fontSize: fonte.normal,
+    color: cores.textoSecundario,
     lineHeight: 20,
   },
 });

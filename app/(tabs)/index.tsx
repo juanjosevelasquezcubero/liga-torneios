@@ -3,10 +3,10 @@ import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { CardTorneio } from '@/components/CardTorneio';
+import { cores, espacamento, fonte } from '@/lib/tema';
 import type { Torneio } from '@/types';
 
-// Dados de exemplo só para o passo 1.
-// Depois esses torneios vêm da tabela "torneios" no Supabase.
+// Dados de exemplo. Depois vêm do Supabase.
 const TORNEIOS_EXEMPLO: Torneio[] = [
   {
     id: '1',
@@ -31,7 +31,9 @@ export default function InicioScreen() {
     <SafeAreaView style={styles.tela} edges={['left', 'right']}>
       <View style={styles.cabecalho}>
         <Text style={styles.titulo}>Liga Itapiranga</Text>
-        <Text style={styles.subtitulo}>Próximos torneios de Free Fire e Mobile Legends</Text>
+        <Text style={styles.subtitulo}>
+          Próximos torneios de Free Fire e Mobile Legends
+        </Text>
 
         <Pressable
           onPress={() => router.push('/inscricao')}
@@ -41,7 +43,6 @@ export default function InicioScreen() {
         </Pressable>
       </View>
 
-      {/* O professor pede FlatList, e não .map, para listas na tela. */}
       <FlatList
         data={TORNEIOS_EXEMPLO}
         keyExtractor={(item) => item.id}
@@ -57,6 +58,9 @@ export default function InicioScreen() {
           />
         )}
         contentContainerStyle={styles.lista}
+        ListEmptyComponent={
+          <Text style={styles.vazio}>Nenhum torneio aberto no momento.</Text>
+        }
       />
     </SafeAreaView>
   );
@@ -65,26 +69,26 @@ export default function InicioScreen() {
 const styles = StyleSheet.create({
   tela: {
     flex: 1,
-    backgroundColor: '#F4F6F8',
+    backgroundColor: cores.fundo,
   },
   cabecalho: {
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 8,
+    paddingHorizontal: espacamento.medio,
+    paddingTop: espacamento.medio,
+    paddingBottom: espacamento.pequeno,
   },
   titulo: {
-    fontSize: 24,
+    fontSize: fonte.titulo,
     fontWeight: '700',
-    color: '#1A202C',
+    color: cores.texto,
   },
   subtitulo: {
     marginTop: 4,
-    marginBottom: 16,
-    fontSize: 14,
-    color: '#4A5568',
+    marginBottom: espacamento.medio,
+    fontSize: fonte.normal,
+    color: cores.textoSecundario,
   },
   botao: {
-    backgroundColor: '#0D7A4F',
+    backgroundColor: cores.verde,
     borderRadius: 10,
     paddingVertical: 12,
     alignItems: 'center',
@@ -93,13 +97,19 @@ const styles = StyleSheet.create({
     opacity: 0.8,
   },
   botaoTexto: {
-    color: '#FFFFFF',
-    fontSize: 16,
+    color: cores.branco,
+    fontSize: fonte.normal,
     fontWeight: '700',
   },
   lista: {
-    paddingHorizontal: 16,
-    paddingTop: 8,
-    paddingBottom: 24,
+    paddingHorizontal: espacamento.medio,
+    paddingTop: espacamento.pequeno,
+    paddingBottom: espacamento.grande,
+  },
+  vazio: {
+    textAlign: 'center',
+    color: cores.textoSecundario,
+    marginTop: 32,
+    fontSize: fonte.normal,
   },
 });

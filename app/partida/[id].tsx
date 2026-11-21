@@ -1,7 +1,8 @@
 import { useLocalSearchParams } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
-// Placeholder do passo 4: times, código da sala e envio do print do resultado.
+import { cores, espacamento, fonte } from '@/lib/tema';
+
 export default function PartidaScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
 
@@ -10,8 +11,7 @@ export default function PartidaScreen() {
       <Text style={styles.titulo}>Partida</Text>
       <Text style={styles.texto}>ID da partida: {id}</Text>
       <Text style={styles.ajuda}>
-        No passo 4, esta tela mostra os times, o código da sala e o envio do
-        print do resultado.
+        Em breve esta tela mostrará os times, o código da sala e o envio do resultado.
       </Text>
     </View>
   );
@@ -20,22 +20,22 @@ export default function PartidaScreen() {
 const styles = StyleSheet.create({
   tela: {
     flex: 1,
-    backgroundColor: '#F4F6F8',
-    padding: 16,
+    backgroundColor: cores.fundo,
+    padding: espacamento.medio,
     gap: 12,
   },
   titulo: {
-    fontSize: 22,
+    fontSize: fonte.titulo,
     fontWeight: '700',
-    color: '#1A202C',
+    color: cores.texto,
   },
   texto: {
-    fontSize: 16,
-    color: '#1A202C',
+    fontSize: fonte.normal,
+    color: cores.texto,
   },
   ajuda: {
-    fontSize: 14,
-    color: '#4A5568',
+    fontSize: fonte.normal,
+    color: cores.textoSecundario,
     lineHeight: 20,
   },
 });

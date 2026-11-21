@@ -1,13 +1,14 @@
 import { StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-// Placeholder do passo 5: pontos e vitórias de cada time.
+import { cores, espacamento, fonte } from '@/lib/tema';
+
 export default function RankingScreen() {
   return (
     <SafeAreaView style={styles.tela} edges={['left', 'right']}>
       <Text style={styles.titulo}>Ranking</Text>
       <Text style={styles.texto}>
-        O ranking da liga entra no passo 5, com pontos e vitórias de cada time.
+        O ranking da liga entra no próximo passo, com pontos e vitórias de cada time.
       </Text>
     </SafeAreaView>
   );
@@ -16,18 +17,18 @@ export default function RankingScreen() {
 const styles = StyleSheet.create({
   tela: {
     flex: 1,
-    backgroundColor: '#F4F6F8',
-    padding: 16,
+    backgroundColor: cores.fundo,
+    padding: espacamento.medio,
   },
   titulo: {
-    fontSize: 22,
+    fontSize: fonte.titulo,
     fontWeight: '700',
-    color: '#1A202C',
+    color: cores.texto,
     marginBottom: 8,
   },
   texto: {
-    fontSize: 15,
-    color: '#4A5568',
+    fontSize: fonte.normal,
+    color: cores.textoSecundario,
     lineHeight: 22,
   },
 });

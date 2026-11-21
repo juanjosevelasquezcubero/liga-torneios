@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-// Placeholder do passo 6: criar torneio, sortear chave e aprovar resultado.
+import { cores, espacamento, fonte } from '@/lib/tema';
+
 export default function AdminScreen() {
   return (
     <View style={styles.tela}>
       <Text style={styles.titulo}>Admin</Text>
       <Text style={styles.ajuda}>
-        No passo 6, o organizador cria torneios, sorteia a chave e aprova o
-        resultado das partidas.
+        Área do organizador: criar torneios, sortear chave e aprovar resultados.
       </Text>
     </View>
   );
@@ -16,18 +16,18 @@ export default function AdminScreen() {
 const styles = StyleSheet.create({
   tela: {
     flex: 1,
-    backgroundColor: '#F4F6F8',
-    padding: 16,
+    backgroundColor: cores.fundo,
+    padding: espacamento.medio,
     gap: 12,
   },
   titulo: {
-    fontSize: 22,
+    fontSize: fonte.titulo,
     fontWeight: '700',
-    color: '#1A202C',
+    color: cores.texto,
   },
   ajuda: {
-    fontSize: 14,
-    color: '#4A5568',
+    fontSize: fonte.normal,
+    color: cores.textoSecundario,
     lineHeight: 20,
   },
 });

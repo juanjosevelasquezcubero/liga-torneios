@@ -1,22 +1,24 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-// Placeholder do passo 3: aqui vamos desenhar os confrontos da chave.
+import { cores, espacamento, fonte } from '@/lib/tema';
+
+// Placeholder da chave. No próximo passo desenha os confrontos.
 export function Chave() {
   return (
     <View style={styles.caixa}>
-      <Text style={styles.texto}>A chave do torneio aparece aqui no passo 3.</Text>
+      <Text style={styles.texto}>A chave do torneio aparece aqui.</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   caixa: {
-    backgroundColor: '#EDF2F7',
+    backgroundColor: cores.fundoSecundario,
     borderRadius: 8,
-    padding: 16,
+    padding: espacamento.medio,
   },
   texto: {
-    color: '#4A5568',
-    fontSize: 14,
+    color: cores.textoSecundario,
+    fontSize: fonte.normal,
   },
 });
